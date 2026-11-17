@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="Cody Noll's software engineering portfolio: Python, C++, computer vision, machine learning, automated reasoning and tested applications." />
+  <title>Cody Noll — Software Engineering Portfolio</title>
+  <style>
+    :root{--bg:#090f1e;--panel:#111a2e;--panel2:#142036;--line:#283650;--ink:#f1f6ff;--muted:#abbad2;--lime:#c5f788;--aqua:#79dbeb;--peach:#ffd2a9;--radius:22px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:var(--bg);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.62;overflow-x:hidden}
+    body:before{content:"";position:absolute;top:0;left:0;right:0;height:860px;pointer-events:none;background:radial-gradient(ellipse 53% 44% at 77% 21%,rgba(62,113,174,.21),transparent 75%),radial-gradient(ellipse 34% 35% at 15% 44%,rgba(48,133,127,.09),transparent 78%)}
+    a{color:inherit;text-decoration:none}button{font:inherit}button,a{outline-offset:4px}button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--lime)}
+    .container{width:min(1160px,calc(100% - 48px));margin:auto;position:relative}
+    .topbar{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(174,200,235,.12)}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:850;font-size:19px;letter-spacing:-.05em}
+    .logo{background:var(--lime);color:#0b1c18;width:38px;height:38px;display:grid;place-items:center;border-radius:11px;font-size:13px;letter-spacing:-.1em;font-weight:900;box-shadow:0 4px 26px #b3fb7c19}
+    .nav{display:flex;align-items:center;gap:31px;font-size:13px;font-weight:650;color:#d2deee}
+    .nav a:hover,.text-link:hover{color:var(--lime)}
+    .nav .nav-cta{border:1px solid #6d876d;padding:10px 17px;border-radius:100px;color:var(--lime);transition:background .2s}
+    .nav .nav-cta:hover{background:#c5f78813}
+    .hero{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:58px;padding:104px 0 115px}
+    .eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--lime);letter-spacing:.13em;text-transform:uppercase;font-weight:780}
+    .dot{width:8px;height:8px;background:var(--lime);border-radius:50%;box-shadow:0 0 0 4px #b6f0801b}
+    h1,h2,h3,p{margin-top:0}
+    h1{font-size:clamp(52px,6.6vw,92px);line-height:1.04;letter-spacing:-.075em;font-weight:825;margin:27px 0 27px}
+    .headline-accent{color:var(--lime)}
+    .lede{font-size:19px;line-height:1.72;color:#c5d2e4;max-width:580px;margin-bottom:31px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:13px;align-items:center}
+    .button{display:inline-flex;justify-content:center;align-items:center;gap:11px;border-radius:999px;padding:13px 21px;font-weight:750;font-size:13px;transition:transform .2s,background .2s,border-color .2s}
+    .button:hover{transform:translateY(-2px)}.button-primary{background:var(--lime);color:#0f1c16}.button-primary:hover{background:#dcffb8}
+    .button-outline{border:1px solid #52617a;color:#f1f6ff}.button-outline:hover{border-color:var(--aqua);background:#ffffff0a}
+    .tiny-note{margin-top:24px;color:#95a7bf;font-size:12px}
+    .hero-art{position:relative;padding:22px 0 4px}
+    .hero-art:before{content:"";position:absolute;inset:-35px -29px;background:radial-gradient(circle at 50% 43%,#61d0e725,transparent 65%);filter:blur(18px);pointer-events:none}
+    .art-grid{position:absolute;inset:-20px -32px;background-image:linear-gradient(#9bbce014 1px,transparent 1px),linear-gradient(90deg,#9bbce014 1px,transparent 1px);background-size:38px 38px;mask-image:radial-gradient(ellipse at center,#000 15%,transparent 80%);pointer-events:none}
+    .feature-screen{position:relative;border:1px solid #3d5571;border-radius:24px;background:linear-gradient(145deg,#1a2941 0%,#0d1729 82%);box-shadow:0 35px 100px #0008,0 1px 0 #ffffff14 inset;overflow:hidden;transform:rotate(-2deg)}
+    .screen-top{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid #ffffff18;padding:16px 20px;color:#a6bcd8;font-size:11px;font-weight:680;letter-spacing:.08em}
+    .window-dots{display:flex;gap:7px}.window-dots i{display:block;width:7px;height:7px;background:#8194ad;border-radius:50%}.window-dots i:first-child{background:#e8a9a4}.window-dots i:nth-child(2){background:#f4d393}.window-dots i:nth-child(3){background:#a8d4a2}
+    .screen-main{padding:27px 28px 19px}
+    .screen-label{font-size:10px;letter-spacing:.16em;color:var(--aqua);font-weight:800;text-transform:uppercase}
+    .screen-title{font-size:23px;line-height:1.25;letter-spacing:-.035em;font-weight:780;margin:13px 0 10px}
+    .screen-sub{font-size:12px;color:#9bafca;line-height:1.6;margin:0}
+    .visual-track{margin:28px 0 25px;position:relative;height:130px;background:radial-gradient(circle at 50% 50%,#18435c7d,#0b1728 70%);border:1px solid #354a65;border-radius:15px;overflow:hidden}
+    .visual-track:before{content:"";position:absolute;inset:0;background:linear-gradient(#83a2c30f 1px,transparent 1px),linear-gradient(90deg,#83a2c30f 1px,transparent 1px);background-size:22px 22px}
+    .visual-track svg{position:absolute;inset:0;width:100%;height:100%}
+    .signal{display:flex;justify-content:space-between;gap:14px;border-top:1px solid #ffffff16;padding-top:17px}
+    .signal strong{display:block;font-size:24px;letter-spacing:-.04em;line-height:1.2;color:#f4f8ff}
+    .signal span{font-size:10px;letter-spacing:.03em;color:#91a7c2}
+    .floating-tag{position:absolute;right:-26px;bottom:9px;background:var(--lime);color:#15231b;border-radius:12px;padding:12px 16px;font-size:11px;font-weight:850;box-shadow:0 16px 42px #0006;transform:rotate(5deg)}
+    .strip{border-block:1px solid #26354b;background:#0d1627}
+    .strip-inner{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:25px;padding:25px 0}
+    .strip-item{border-right:1px solid #2b3950;padding-right:16px}.strip-item:last-child{border:0}
+    .strip-item small{display:block;color:#8fa5c0;font-size:10px;font-weight:770;text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px}
+    .strip-item strong{font-size:13px;font-weight:720;color:#e2ecf8}
+    section.section{padding:108px 0 0;scroll-margin-top:25px}
+    .section-intro{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:34px}
+    .kicker{font-size:11px;font-weight:840;color:var(--aqua);letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px}
+    h2{font-size:clamp(32px,4vw,53px);letter-spacing:-.055em;line-height:1.15;font-weight:820;margin:0}
+    .section-desc{color:var(--muted);font-size:14px;max-width:370px;line-height:1.75;margin:0}
+    .filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:24px}
+    .filter{color:#c6d1e1;background:#111c2e;border:1px solid #37465d;padding:9px 16px;border-radius:100px;font-size:12px;font-weight:720;cursor:pointer;transition:.2s}
+    .filter:hover{border-color:#8cabb8}.filter[aria-pressed="true"]{background:var(--lime);border-color:var(--lime);color:#0b1c14}
+    .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px}
+    .project{border:1px solid #2c3b52;background:linear-gradient(150deg,#141f32,#10192b);border-radius:var(--radius);padding:29px 30px 25px;position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:330px;transition:border-color .2s,transform .2s}
+    .project:hover{border-color:#5d7684;transform:translateY(-3px)}
+    .project.featured{grid-column:span 2;display:grid;grid-template-columns:1.16fr .84fr;gap:28px;min-height:300px;background:linear-gradient(110deg,#182737,#0e202e)}
+    .project.featured:after{content:"";position:absolute;width:310px;height:310px;border:1px solid #a8f1ce28;border-radius:50%;right:-70px;top:-150px;box-shadow:0 0 0 55px #9cebc008,0 0 0 109px #9cebc006;pointer-events:none}
+    .project-number{display:block;font-size:11px;font-weight:850;letter-spacing:.15em;color:var(--lime);margin-bottom:26px}
+    .project h3{font-size:25px;line-height:1.25;letter-spacing:-.045em;font-weight:800;margin-bottom:13px;max-width:370px}
+    .project p{font-size:13px;line-height:1.7;color:#aebfd6;margin:0 0 22px}
+    .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:10px}
+    .chips span{font-size:10px;border-radius:6px;padding:5px 9px;border:1px solid #38495f;background:#ffffff08;color:#d4e2f1;font-weight:680}
+    .project-link{display:inline-flex;align-items:center;gap:7px;color:var(--lime);font-size:12px;font-weight:790;margin-top:18px}
+    .project-link:hover{color:#fff}
+    .project .meta{margin:0 0 17px;color:#91a9c4;font-size:11px;letter-spacing:.04em;font-weight:750}
+    .featured-stat{align-self:center;position:relative;background:#0c1927;border:1px solid #426454;border-radius:18px;padding:26px;min-height:206px;display:flex;flex-direction:column;justify-content:center}
+    .featured-stat .big{font-size:64px;font-weight:850;color:var(--lime);line-height:1;letter-spacing:-.07em}.featured-stat .label{font-size:13px;color:#c6dccf;margin-top:12px;font-weight:700}.featured-stat .sub{font-size:11px;color:#8ba79e;margin-top:7px}
+    .detail{margin-top:16px;border-top:1px solid #354559;padding-top:14px;color:#a9bbcf;font-size:12px;line-height:1.7}
+    .detail summary{cursor:pointer;color:#e1edf7;font-weight:780;list-style:none;display:flex;justify-content:space-between;gap:12px}
+    .detail summary::-webkit-details-marker{display:none}.detail summary:after{content:"+";font-size:19px;line-height:1}.detail[open] summary:after{content:"−"}
+    .detail ul{padding-left:18px;margin:12px 0 0}.detail li+li{margin-top:7px}
+    .hidden{display:none!important}
+    .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:23px}
+    .about-card,.experience-card,.skills-card{border:1px solid #2b3b51;background:#111b2e;border-radius:var(--radius);padding:33px}
+    .about-card{background:linear-gradient(145deg,#13243b,#111b2e)}
+    .about-card .large-copy{font-size:20px;line-height:1.7;color:#dce7f4;letter-spacing:-.018em;margin-bottom:23px}
+    .about-card .large-copy strong{color:var(--lime);font-weight:780}
+    .about-card p:last-child{margin:0;color:#afc0d5;font-size:13px;line-height:1.8}
+    .experience-card .icon{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:#a0dbef18;border:1px solid #6ebbd947;font-size:19px;color:var(--aqua);margin-bottom:22px}
+    .experience-card h3{font-size:21px;letter-spacing:-.04em;margin-bottom:8px}.experience-card .company{color:var(--aqua);font-size:12px;font-weight:750;margin-bottom:16px}
+    .experience-card p{font-size:13px;color:#b5c4d7;line-height:1.75;margin-bottom:17px}
+    .experience-stat{border-top:1px solid #354259;padding-top:16px;display:flex;align-items:center;gap:14px}
+    .experience-stat strong{font-size:30px;letter-spacing:-.045em;color:var(--lime)}.experience-stat span{font-size:11px;color:#aabdd1;line-height:1.5}
+    .skills-layout{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+    .skills-card{padding:27px}.skills-card h3{font-size:16px;letter-spacing:-.02em;margin-bottom:19px}.skills-card .skills-list{display:flex;flex-wrap:wrap;gap:8px}
+    .skills-card .skills-list span{padding:8px 10px;background:#19283e;border:1px solid #2b4260;border-radius:9px;color:#c9d8e9;font-size:11px;font-weight:690}
+    .contact{margin:105px 0 44px;border:1px solid #557657;border-radius:29px;min-height:274px;background:radial-gradient(ellipse at 90% 10%,#baff6a14,transparent 50%),linear-gradient(110deg,#1b342d,#10222a 78%);padding:52px 58px;display:flex;justify-content:space-between;align-items:center;gap:36px}
+    .contact h2{max-width:570px;margin-bottom:19px}.contact p{font-size:13px;color:#bcd3c4;margin:0;max-width:520px}.contact-actions{display:flex;flex-direction:column;gap:11px;flex-shrink:0}
+    footer{border-top:1px solid #26364c;padding:25px 0 37px;display:flex;justify-content:space-between;gap:14px;font-size:11px;color:#91a6bf}
+    .footer-links{display:flex;gap:22px}.footer-links a:hover{color:var(--lime)}
+    @media(max-width:980px){.hero{gap:32px}.hero-art{padding-right:20px}.project.featured{grid-template-columns:1fr 190px}.featured-stat .big{font-size:52px}.contact{padding:43px}.skills-layout{grid-template-columns:repeat(2,1fr)}.skills-card:last-child{grid-column:span 2}}
+    @media(max-width:720px){.container{width:min(100% - 32px,540px)}.topbar{height:72px}.nav{gap:14px}.nav a:not(.nav-cta){display:none}.hero{grid-template-columns:1fr;padding:66px 0 71px;gap:20px}h1{font-size:clamp(55px,12vw,75px)}.lede{font-size:16px}.hero-art{max-width:490px;margin:0 auto;width:100%;padding:25px 18px}.floating-tag{right:1px}.strip-inner{grid-template-columns:1fr 1fr;gap:20px}.strip-item:nth-child(2){border:0}.strip-item:nth-child(3),.strip-item:nth-child(4){border-top:1px solid #2b3950;padding-top:15px}.section-intro{display:block}.section-desc{margin-top:18px}section.section{padding-top:75px}.projects{grid-template-columns:1fr}.project.featured{grid-column:span 1;grid-template-columns:1fr}.featured-stat{min-height:135px;padding:17px}.project{min-height:auto;padding:25px}.project-number{margin-bottom:17px}.about-grid,.skills-layout{grid-template-columns:1fr}.skills-card:last-child{grid-column:span 1}.contact{margin-top:77px;padding:35px 27px;display:block}.contact-actions{margin-top:25px;align-items:flex-start}footer{flex-direction:column}.hero-actions .button{padding:12px 18px}.screen-main{padding:23px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button,.project{transition:none}.button:hover,.project:hover{transform:none}}
+  </style>
+</head>
+<body>
+  <header class="container topbar">
+    <a class="brand" href="#top" aria-label="Cody Noll — top of page"><span class="logo">CN</span><span>Cody Noll<span style="color:var(--lime)">.</span></span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#projects">Projects</a><a href="#about">About</a><a href="#skills">Skills</a>
+      <a class="nav-cta" href="https://github.com/CodyNoll" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="container hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Computer science student · Australia</div>
+        <h1>Building beyond<br><span class="headline-accent">the demo.</span></h1>
+        <p class="lede">I'm Cody — a Griffith University computer science student who enjoys turning complex problems into reliable, useful software. My work spans Python, C++, computer vision, machine learning and automated testing.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline" href="https://github.com/CodyNoll" target="_blank" rel="noopener noreferrer">View GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="tiny-note">Seeking software engineering internships · Brisbane / Sydney / Melbourne · Open to relocation</div>
+      </div>
+      <div class="hero-art" aria-label="Visual overview of a real computer vision project">
+        <div class="art-grid"></div>
+        <div class="feature-screen">
+          <div class="screen-top"><span class="window-dots"><i></i><i></i><i></i></span><span>PROJECT / COMPUTER VISION</span><span>01 — 05</span></div>
+          <div class="screen-main">
+            <span class="screen-label">Featured project</span>
+            <div class="screen-title">Detection-assisted<br>visual tracking</div>
+            <p class="screen-sub">Tracking · feature verification · automatic recovery</p>
+            <div class="visual-track">
+              <svg viewBox="0 0 400 130" role="img" aria-label="Abstract illustration of a target tracking path">
+                <defs><linearGradient id="trackline" x1="0" x2="1"><stop stop-color="#7cd9ee"/><stop offset="1" stop-color="#c5f788"/></linearGradient></defs>
+                <path d="M14 99 C67 91 88 33 137 43 S207 110 247 57 S335 77 390 26" stroke="url(#trackline)" stroke-width="3" stroke-dasharray="6 6" fill="none" opacity=".95"/>
+                <circle cx="137" cy="43" r="5" fill="#79dbeb"/><circle cx="247" cy="57" r="5" fill="#79dbeb"/>
+                <rect x="297" y="17" width="68" height="70" rx="7" fill="#c5f78810" stroke="#c5f788" stroke-width="2"/><path d="M331 17v70M297 52h68" stroke="#c5f7884d" stroke-dasharray="3 5"/>
+                <circle cx="331" cy="52" r="8" fill="#c5f788"/><circle cx="331" cy="52" r="17" fill="none" stroke="#c5f78877"/><text x="17" y="20" fill="#92abc3" font-size="10" font-family="monospace">FRAME 0917</text>
+              </svg>
+            </div>
+            <div class="signal"><div><strong>1,191</strong><span>frames evaluated</span></div><div><strong>3</strong><span>tracking losses recovered</span></div><div><strong>Python</strong><span>OpenCV pipeline</span></div></div>
+          </div>
+        </div>
+        <div class="floating-tag">Built, tested &amp; evaluated ✓</div>
+      </div>
+    </div>
+
+    <div class="strip"><div class="container strip-inner">
+      <div class="strip-item"><small>University</small><strong>Griffith University</strong></div>
+      <div class="strip-item"><small>Degree</small><strong>Bachelor of Computer Science</strong></div>
+      <div class="strip-item"><small>Major</small><strong>Data Science &amp; AI</strong></div>
+      <div class="strip-item"><small>Expected graduation</small><strong>June 2027 · GPA 6.27/7.0</strong></div>
+    </div></div>
+
+    <section id="projects" class="container section" aria-labelledby="projects-heading">
+      <div class="section-intro"><div><div class="kicker">01 / Selected work</div><h2 id="projects-heading">Projects with proof.</h2></div><p class="section-desc">A selection of coursework projects, grounded in implementation, testing and measurable outcomes. One repository is currently public on GitHub.</p></div>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="filter" data-filter="all" aria-pressed="true">All projects</button>
+        <button class="filter" data-filter="vision" aria-pressed="false">Vision &amp; robotics</button>
+        <button class="filter" data-filter="ml" aria-pressed="false">Machine learning</button>
+        <button class="filter" data-filter="software" aria-pressed="false">Software &amp; algorithms</button>
+      </div>
+      <div class="projects" id="project-list">
+        <article class="project featured" data-category="vision"><div>
+          <span class="project-number">01 / COMPUTER VISION · INDIVIDUAL</span>
+          <h3>Detection-Assisted Visual Tracking</h3>
+          <p>Developed a Python/OpenCV pipeline combining cascade detection, Lucas–Kanade optical flow, SIFT verification and automatic re-detection to maintain tracking through temporary object loss.</p>
+          <div class="chips"><span>Python</span><span>OpenCV</span><span>Optical flow</span><span>SIFT</span></div>
+          <details class="detail"><summary>What I built</summary><ul><li>Integrated detection, frame-to-frame tracking and feature verification.</li><li>Added confidence checks and recovery logic for tracking loss.</li><li>Evaluated 1,191 video frames and recovered three tracking losses.</li></ul></details>
+        </div><div class="featured-stat"><div class="big">1,191</div><div class="label">frames processed</div><div class="sub">3 successful recoveries after tracking loss</div></div></article>
+
+        <article class="project" data-category="ml"><span class="project-number">02 / MACHINE LEARNING</span><h3>Hospital Readmission Prediction</h3>
+          <p>Implemented and compared class-weighted linear SVM approaches in Python and C++, using patient-grouped validation to prevent leakage.</p>
+          <div class="meta">99,343 encounters after preprocessing</div>
+          <div class="chips"><span>Python</span><span>C++</span><span>scikit-learn</span><span>LIBLINEAR</span></div>
+          <details class="detail"><summary>What I built</summary><ul><li>Compared scikit-learn, C++ LIBLINEAR and a custom Python optimiser.</li><li>Applied encoding, scaling, class weighting and hyperparameter tuning.</li><li>Evaluated precision, recall and precision–recall AUC with patient-grouped splits.</li></ul></details>
+        </article>
+
+        <article class="project" data-category="software"><span class="project-number">03 / ALGORITHMS · PUBLIC SOURCE CODE</span><h3>Logic &amp; Automated Reasoning</h3>
+          <p>Implemented a first-order logic reasoner with a lexer, parser, syntax trees and LK′ backward proof search. Benchmarked baseline and improved search strategies.</p>
+          <div class="meta">Verified public repository</div>
+          <div class="chips"><span>Python</span><span>Parsing</span><span>Algorithms</span><span>Benchmarking</span></div>
+          <a class="project-link" href="https://github.com/CodyNoll/3806A1" target="_blank" rel="noopener noreferrer">View source code &amp; results ↗</a>
+          <details class="detail"><summary>Technical details</summary><ul><li>Implemented first-order logic formula parsing and sequent representation.</li><li>Compared naive backward search with caching, bounded term generation and improved rule ordering.</li><li>Published source files, generated benchmarks and CSV experiment results.</li></ul></details>
+        </article>
+
+        <article class="project" data-category="software"><span class="project-number">04 / SOFTWARE ENGINEERING · TEAM PROJECT</span><h3>Electricity Tariff Billing &amp; Test Suite</h3>
+          <p>Contributed Python time-of-use billing calculations with configurable tariff periods, cross-midnight handling, precise decimal arithmetic and validation.</p>
+          <div class="meta">40 passing automated tests</div>
+          <div class="chips"><span>Python</span><span>Unit testing</span><span>Validation</span><span>Decimal</span></div>
+          <details class="detail"><summary>My contribution</summary><ul><li>Developed billing logic for varying time-of-use rates and midnight boundaries.</li><li>Implemented robust input handling and exact decimal calculations.</li><li>Authored and ran an automated test suite with 40 passing tests.</li></ul></details>
+        </article>
+
+        <article class="project" data-category="vision"><span class="project-number">05 / ROBOTICS · TEAM PROJECT</span><h3>Autonomous Visual Search Robot</h3>
+          <p>Built target-recognition and scanning components for a Webots-based robot, integrating visual classification and confidence checks into the team system.</p>
+          <div class="meta">Team system completed 6/6 recorded missions</div>
+          <div class="chips"><span>Python</span><span>Webots</span><span>OpenCV</span><span>NumPy</span></div>
+          <details class="detail"><summary>My contribution</summary><ul><li>Implemented detection, classification, confidence checks and multi-frame voting.</li><li>Contributed an interface for the robot's visual scanning behaviour.</li><li>Integrated recognition components with the wider team system.</li></ul></details>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="container section" aria-labelledby="about-heading">
+      <div class="section-intro"><div><div class="kicker">02 / A bit about me</div><h2 id="about-heading">Code meets communication.</h2></div><p class="section-desc">I bring an analytical approach to engineering and hands-on experience explaining technology to people.</p></div>
+      <div class="about-grid">
+        <div class="about-card"><p class="large-copy">I'm a computer science student who likes the whole process: <strong>understand the problem, build the system, test the edge cases and make it useful.</strong></p><p>My university projects have taken me from proof-search algorithms and machine learning experiments to tracking pipelines, robotics and software testing. I'm particularly interested in developing dependable software, learning from experienced engineering teams and contributing to products people genuinely enjoy using.</p></div>
+        <div class="experience-card"><div class="icon" aria-hidden="true">↗</div><h3>Experience beyond the IDE</h3><div class="company">Telstra · Sales Consultant &amp; Samsung Product Representative</div><p>Consulted with customers on technology solutions, translated technical features into clear recommendations and coached colleagues in Samsung products. Also supported weekly visual merchandising and participated in Telstra's Aspiring Leader program.</p><div class="experience-stat"><strong>15% → 27%</strong><span>Samsung store sales share growth<br>supported through product expertise and coaching</span></div></div>
+      </div>
+    </section>
+
+    <section id="skills" class="container section" aria-labelledby="skills-heading">
+      <div class="section-intro"><div><div class="kicker">03 / Toolkit</div><h2 id="skills-heading">What I work with.</h2></div><p class="section-desc">Languages and tools used across coursework and project implementation — with more to learn every day.</p></div>
+      <div class="skills-layout">
+        <div class="skills-card"><h3>Languages &amp; foundations</h3><div class="skills-list"><span>Python</span><span>C++</span><span>Java</span><span>C#</span><span>SQL</span><span>Object-oriented design</span><span>Algorithms</span></div></div>
+        <div class="skills-card"><h3>Data, AI &amp; vision</h3><div class="skills-list"><span>OpenCV</span><span>NumPy</span><span>scikit-learn</span><span>LIBLINEAR</span><span>Computer vision</span><span>Machine learning</span><span>Webots</span></div></div>
+        <div class="skills-card"><h3>Engineering practices</h3><div class="skills-list"><span>Git</span><span>Unit testing</span><span>Input validation</span><span>Model evaluation</span><span>Debugging</span><span>Benchmarking</span><span>Team collaboration</span></div></div>
+      </div>
+    </section>
+
+    <section class="container contact" aria-labelledby="contact-heading">
+      <div><div class="kicker" style="color:var(--lime)">04 / Let's connect</div><h2 id="contact-heading">Looking for the next thing to build.</h2><p>I'm exploring software engineering internship opportunities in Australia and beyond, with an expected graduation in June 2027. Explore my verified public code or connect with me through GitHub.</p></div>
+      <div class="contact-actions"><a class="button button-primary" href="https://github.com/CodyNoll" target="_blank" rel="noopener noreferrer">Visit my GitHub ↗</a><a class="button button-outline" href="https://github.com/CodyNoll/3806A1" target="_blank" rel="noopener noreferrer">View public code ↗</a></div>
+    </section>
+  </main>
+
+  <footer class="container"><span>© 2026 Cody Noll · Built with care in Australia.</span><div class="footer-links"><a href="#top">Back to top ↑</a><a href="https://github.com/CodyNoll" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></footer>
+  <script>
+    const filterButtons=[...document.querySelectorAll('[data-filter]')];
+    const projects=[...document.querySelectorAll('.project[data-category]')];
+    filterButtons.forEach(button=>button.addEventListener('click',()=>{
+      const selected=button.dataset.filter;
+      filterButtons.forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
+      projects.forEach(project=>{project.classList.toggle('hidden',selected!=='all'&&project.dataset.category!==selected)});
+    }));
+  </script>
+</body>
+</html>
